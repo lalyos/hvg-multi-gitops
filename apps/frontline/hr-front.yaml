@@ -24,7 +24,7 @@ spec:
       host: frontline.hvg.lol
       ingressClassName: kong
       annotations:
-        konghq.com/plugins: trafo
+        konghq.com/plugins: clustername
     vars:
       TITLE: Frontline [kong] - PRODAKSON
       COLO2: hotpink
