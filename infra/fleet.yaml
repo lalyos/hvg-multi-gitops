@@ -1,0 +1,3 @@
+targetCustomizations:
+  - name: only-kong-host
+    clusterGroup: kong
