@@ -1,0 +1,31 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: frontline
+  namespace: flux-system
+spec:
+  targetNamespace: production
+  interval: 1m
+  chart:
+    spec:
+      chart: onechart
+      version:  "0.67.0"
+      sourceRef:
+        kind: HelmRepository
+        name: oc
+        namespace: flux-system
+      interval: 1m
+
+  values:
+    image:
+      repository: lalyos/12factor
+      tag: readiness
+    ingress:
+      host: frontline.hvg.lol
+      ingressClassName: kong
+      annotations:
+        konghq.com/plugins: trafo
+    vars:
+      TITLE: Frontline [kong] - PRODAKSON
+      COLO2: hotpink
+      BODY: yeeeah
