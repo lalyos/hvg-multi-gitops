@@ -1,0 +1,10 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: clustername
+  namespace: lalyos
+plugin: response-transformer 
+config:
+  append:
+    headers:
+    - "clustername: lalyos"
